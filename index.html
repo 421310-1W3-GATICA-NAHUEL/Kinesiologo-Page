@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facundo Rodriguez | Kinesiólogo</title>
+    <meta name="description" content="Kinesiólogo del Club Atlético Belgrano. Especialista en movimiento, salud, rendimiento y recuperación.">
+
+    <!-- Open Graph (preview al compartir en WhatsApp, Instagram, Facebook, etc.) -->
+    <!-- REEMPLAZAR og:url por el dominio real y og:image por una foto/banner real (1200x630px recomendado) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.facundorodriguez-kinesiologo.com/">
+    <meta property="og:title" content="Facundo Rodriguez | Kinesiólogo">
+    <meta property="og:description" content="Kinesiólogo del Club Atlético Belgrano. Movimiento, salud y rendimiento.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:locale" content="es_AR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Facundo Rodriguez | Kinesiólogo">
+    <meta name="twitter:description" content="Kinesiólogo del Club Atlético Belgrano. Movimiento, salud y rendimiento.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Favicon (reemplazar por el logo/isotipo real cuando esté disponible) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233B9FE8'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3EFR%3C/text%3E%3C/svg%3E">
+
+    <!-- SEO Local: LocalBusiness Schema (ayuda a aparecer en búsquedas de Google Maps / "kinesiólogo cerca de mí") -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Facundo Rodriguez - Kinesiólogo",
+        "description": "Kinesiólogo especializado en rehabilitación, prevención de lesiones y rendimiento deportivo. Kinesiólogo oficial del Club Atlético Belgrano, Córdoba.",
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Córdoba",
+            "addressCountry": "AR"
+        },
+        "medicalSpecialty": "PhysicalTherapy",
+        "sameAs": ["https://instagram.com/kine.facundorodriguez"]
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@600;700&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- 
+      ANALYTICS (opcional, desactivado por defecto)
+      Para saber cuánta gente visita el sitio, descomentá UNA de las dos opciones:
+
+      Opción A - Plausible (paga, liviano, respeta privacidad, no requiere banner de cookies):
+      <script defer data-domain="TU-DOMINIO.com" src="https://plausible.io/js/script.js"></script>
+
+      Opción B - Google Analytics (gratis, requiere aviso de cookies):
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+      </script>
+    -->
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0e1a',
+                        accent: '#3B9FE8',
+                        accentHover: '#2A8DD6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                        signature: ['Nothing You Could Do', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Fade-in Animation Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+        
+        /* Wave Shape */
+        .wave-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        .wave-bottom .shape-fill {
+            fill: #ffffff;
+        }
+        
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-sans bg-dark text-gray-800 antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <!-- 1. HEADER (fijo/sticky) -->
+    <header class="fixed w-full top-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-gray-800 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center gap-2 group">
+                        <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-white font-heading font-bold text-xl group-hover:bg-accentHover transition-colors">
+                            FR
+                        </div>
+                        <div class="hidden sm:block">
+                            <span class="block text-white font-heading font-semibold text-lg leading-none">Facundo Rodriguez</span>
+                            <span class="block text-accent text-xs font-medium uppercase tracking-wider mt-1">Kinesiólogo</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-gray-300 hover:text-accent font-medium text-sm transition-colors">Inicio</a>
+                    <a href="#sobre-mi" class="text-gray-300 hover:text-accent font-medium text-sm transition-colors">Sobre Mí</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-accent font-medium text-sm transition-colors">Servicios</a>
+                    <a href="#metodologia" class="text-gray-300 hover:text-accent font-medium text-sm transition-colors">Metodología</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-accent font-medium text-sm transition-colors">Contacto</a>
+                    <a href="#" class="btn-reserva bg-accent hover:bg-accentHover text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all transform hover:scale-105 shadow-lg shadow-accent/30">
+                        Reservá tu cita
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-dark border-l border-gray-800 shadow-2xl z-50 md:hidden flex flex-col">
+            <div class="p-4 flex justify-end">
+                <button id="menu-close" class="text-gray-300 hover:text-white p-2">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4 px-6 pt-4">
+                <a href="#inicio" class="mobile-link text-gray-300 hover:text-accent font-medium text-lg">Inicio</a>
+                <a href="#sobre-mi" class="mobile-link text-gray-300 hover:text-accent font-medium text-lg">Sobre Mí</a>
+                <a href="#servicios" class="mobile-link text-gray-300 hover:text-accent font-medium text-lg">Servicios</a>
+                <a href="#metodologia" class="mobile-link text-gray-300 hover:text-accent font-medium text-lg">Metodología</a>
+                <a href="#contacto" class="mobile-link text-gray-300 hover:text-accent font-medium text-lg">Contacto</a>
+                <div class="pt-6">
+                    <a href="#" class="btn-reserva block text-center w-full bg-accent hover:bg-accentHover text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-accent/30">
+                        Reservá tu cita
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. HERO -->
+    <section id="inicio" class="relative bg-dark pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="fade-in-section">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-800/50 border border-gray-700 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                        <span class="text-xs font-semibold text-gray-300 tracking-widest uppercase">Kinesiología</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-heading font-bold text-white leading-tight mb-6 uppercase">
+                        Movimiento, Salud <br>
+                        <span class="text-accent">y Rendimiento.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-gray-400 mb-8 max-w-xl leading-relaxed">
+                        Recuperá tu movilidad y alcanzá tu máximo potencial. Tratamientos personalizados orientados a resultados, avalados por experiencia en el deporte de alto rendimiento.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                        <a href="#" target="_blank" rel="noopener" class="btn-consulta flex items-center justify-center gap-2 bg-accent hover:bg-accentHover text-white px-8 py-4 rounded-xl font-medium transition-all transform hover:-translate-y-1 shadow-lg shadow-accent/30">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            Consultá por WhatsApp
+                        </a>
+                        <a href="#" target="_blank" rel="noopener" class="btn-reserva flex items-center justify-center gap-2 bg-transparent border-2 border-gray-600 text-white hover:border-accent hover:text-accent px-8 py-4 rounded-xl font-medium transition-all">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            Reservá tu cita
+                        </a>
+                    </div>
+
+                    <!-- Badge CAB -->
+                    <div class="flex items-center gap-4 bg-gray-900/50 p-4 rounded-2xl border border-gray-800 inline-flex">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center border border-gray-700">
+                            <i data-lucide="shield" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Kinesiólogo Oficial</p>
+                            <p class="text-xs text-gray-400">Club Atlético Belgrano Córdoba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Content -->
+                <div class="relative fade-in-section">
+                    <div class="absolute -inset-4 bg-accent/20 rounded-[2.5rem] blur-2xl transform rotate-3"></div>
+                    <!-- REPLACE IMAGE: Buscar foto de kinesiología/fisioterapia deportiva -->
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Kinesiólogo atendiendo paciente" 
+                         class="relative rounded-[2rem] shadow-2xl border border-gray-800 object-cover h-[500px] w-full">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Wave -->
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.15,198.81,115.17,243.64,109.91,286.6,83.15,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 3. SOBRE MÍ -->
+    <section id="sobre-mi" class="bg-white py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="fade-in-section">
+                    <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Sobre Mí</h2>
+                    <h3 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-6 uppercase">
+                        Kinesiología para <br>tu bienestar
+                    </h3>
+                    <div class="space-y-4 text-gray-600 text-lg">
+                        <p>
+                            Mi enfoque se basa en entender tu cuerpo como un sistema integral. No solo tratamos el síntoma, sino que buscamos la causa raíz para garantizar una recuperación duradera y efectiva.
+                        </p>
+                        <p>
+                            Con años de experiencia en el deporte profesional y atención clínica, mi objetivo es devolverte a tu mejor versión, ya sea para volver a la cancha, a tu rutina diaria o simplemente vivir sin dolor.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <span class="font-signature text-3xl text-gray-900 block">Facundo Rodriguez</span>
+                        <span class="text-sm text-gray-500 font-medium mt-1 block">Lic. en Kinesiología y Fisioterapia</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 fade-in-section">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-accent/30 transition-colors group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="user-check" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Atención Personalizada</h4>
+                        <p class="text-gray-600 text-sm">Evaluación exhaustiva y planes diseñados específicamente para tus necesidades.</p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-accent/30 transition-colors group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="award" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Profesionalismo</h4>
+                        <p class="text-gray-600 text-sm">Prácticas basadas en la evidencia científica más reciente del campo.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-accent/30 transition-colors group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="activity" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Rendimiento</h4>
+                        <p class="text-gray-600 text-sm">Optimización de tus capacidades físicas para superar tus límites.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-accent/30 transition-colors group">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Prevención</h4>
+                        <p class="text-gray-600 text-sm">Educación y ejercicios para evitar futuras lesiones y recaídas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. METODOLOGÍA -->
+    <section id="metodologia" class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Metodología</h2>
+                <h3 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 uppercase">
+                    Cómo trabajo
+                </h3>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Un proceso claro, en tres pasos, para que sepas exactamente qué esperar en cada etapa de tu recuperación.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paso 1 -->
+                <div class="relative text-center fade-in-section">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
+                        <i data-lucide="clipboard-list" class="w-8 h-8 text-accent"></i>
+                    </div>
+                    <span class="text-sm font-bold text-accent tracking-widest">PASO 1</span>
+                    <h4 class="text-xl font-bold text-gray-900 mt-2 mb-3">Evaluación inicial</h4>
+                    <p class="text-gray-600">Analizamos tu historia clínica, dolor o lesión, y evaluamos tu movilidad para entender la causa real del problema.</p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="relative text-center fade-in-section" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
+                        <i data-lucide="calendar-check" class="w-8 h-8 text-accent"></i>
+                    </div>
+                    <span class="text-sm font-bold text-accent tracking-widest">PASO 2</span>
+                    <h4 class="text-xl font-bold text-gray-900 mt-2 mb-3">Plan de tratamiento</h4>
+                    <p class="text-gray-600">Diseñamos un plan personalizado, con objetivos claros y basado en evidencia científica actualizada.</p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="relative text-center fade-in-section" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-accent"></i>
+                    </div>
+                    <span class="text-sm font-bold text-accent tracking-widest">PASO 3</span>
+                    <h4 class="text-xl font-bold text-gray-900 mt-2 mb-3">Seguimiento y alta</h4>
+                    <p class="text-gray-600">Monitoreamos tu evolución sesión a sesión, ajustando el plan hasta lograr tu recuperación completa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SERVICIOS -->
+    <section id="servicios" class="bg-dark py-24 relative overflow-hidden">
+        <!-- Decoraciones sutiles -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Especialidades</h2>
+                <h3 class="text-4xl lg:text-5xl font-heading font-bold text-white uppercase">
+                    ¿Cómo puedo ayudarte?
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800 hover:border-accent/50 transition-all hover:-translate-y-2 fade-in-section group">
+                    <div class="w-14 h-14 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent transition-colors">
+                        <i data-lucide="bone" class="w-7 h-7 text-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3">Kinesioterapia</h4>
+                    <p class="text-gray-400">Tratamiento de patologías neuromusculoesqueléticas mediante agentes físicos y técnicas manuales para aliviar el dolor y restaurar la función.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800 hover:border-accent/50 transition-all hover:-translate-y-2 fade-in-section group" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent transition-colors">
+                        <i data-lucide="heart-pulse" class="w-7 h-7 text-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3">Rehabilitación</h4>
+                    <p class="text-gray-400">Proceso integral post-operatorio o post-lesión diseñado para devolver la movilidad, fuerza y confianza al paciente de manera progresiva.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800 hover:border-accent/50 transition-all hover:-translate-y-2 fade-in-section group" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent transition-colors">
+                        <i data-lucide="shield-alert" class="w-7 h-7 text-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3">Prevención de Lesiones</h4>
+                    <p class="text-gray-400">Evaluación biomecánica y corrección de desbalances para atletas y población general, minimizando el riesgo de futuras complicaciones.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800 hover:border-accent/50 transition-all hover:-translate-y-2 fade-in-section group" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent transition-colors">
+                        <i data-lucide="dumbbell" class="w-7 h-7 text-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3">Readaptación</h4>
+                    <p class="text-gray-400">Puente entre el alta médica y la vuelta al deporte competitivo. Entrenamientos específicos para recuperar el máximo nivel de rendimiento.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-3xl border border-gray-800 hover:border-accent/50 transition-all hover:-translate-y-2 fade-in-section group lg:col-span-2 xl:col-span-1" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:border-accent transition-colors">
+                        <i data-lucide="hand" class="w-7 h-7 text-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3">Masoterapia</h4>
+                    <p class="text-gray-400">Técnicas de masaje terapéutico y deportivo para descarga muscular, mejora de la circulación y alivio de tensiones acumuladas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CTA BANNER -->
+    <section class="bg-accent py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 fade-in-section">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-heading font-bold text-white uppercase mb-2">
+                        Tu cuerpo, tu mejor aliado.
+                    </h2>
+                    <p class="text-white/80 text-lg">Da el primer paso hacia tu recuperación hoy mismo.</p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                    <a href="#" target="_blank" rel="noopener" class="btn-consulta flex items-center justify-center gap-2 bg-dark hover:bg-gray-900 text-white px-8 py-4 rounded-xl font-medium transition-transform transform hover:-translate-y-1 w-full sm:w-auto">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        Consultá por WhatsApp
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" class="btn-reserva flex items-center justify-center gap-2 bg-white text-accent hover:bg-gray-50 px-8 py-4 rounded-xl font-medium transition-transform transform hover:-translate-y-1 shadow-lg w-full sm:w-auto">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        Reservá tu cita
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CONTACTO (Formulario) -->
+    <section id="contacto" class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Info de contacto -->
+                <div class="fade-in-section">
+                    <h2 class="text-sm font-bold text-accent tracking-widest uppercase mb-2">Contacto</h2>
+                    <h3 class="text-4xl font-heading font-bold text-gray-900 uppercase mb-6">
+                        Hablemos de tu salud
+                    </h3>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        Dejame tu mensaje y me pondré en contacto a la brevedad para coordinar una evaluación.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Ubicación</h4>
+                                <p class="text-gray-600">Córdoba, Argentina</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="instagram" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Instagram</h4>
+                                <a href="https://instagram.com/kine.facundorodriguez" target="_blank" class="text-gray-600 hover:text-accent transition-colors">@kine.facundorodriguez</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Teléfono</h4>
+                                <p class="text-gray-600">Consultar por WhatsApp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm fade-in-section">
+                    <!-- Placeholder de Formspree: reemplazar action="https://formspree.io/f/ID_DEL_FORMULARIO" -->
+                    <form id="contact-form" action="https://formspree.io/f/placeholder" method="POST" class="space-y-6">
+
+                        <!-- Honeypot anti-spam: campo oculto que solo los bots completan. No quitar. -->
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">Nombre completo *</label>
+                                <input type="text" id="nombre" name="nombre" required 
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors bg-white">
+                            </div>
+                            <div>
+                                <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required 
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors bg-white">
+                        </div>
+
+                        <div>
+                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-2">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required 
+                                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors bg-white resize-none"></textarea>
+                        </div>
+
+                        <!-- Consentimiento de datos (Ley 25.326 de Protección de Datos Personales, Argentina) -->
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="consentimiento" name="consentimiento" required
+                                class="mt-1 w-4 h-4 rounded border-gray-300 text-accent focus:ring-accent flex-shrink-0">
+                            <label for="consentimiento" class="text-sm text-gray-600">
+                                Acepto que mis datos sean utilizados únicamente para que Facundo Rodriguez se contacte conmigo. No serán compartidos con terceros. *
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-dark hover:bg-gray-900 text-white font-medium py-4 rounded-xl transition-colors flex items-center justify-center gap-2">
+                            <span>Enviar mensaje</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+
+                        <div id="form-message" class="hidden text-center p-4 rounded-xl text-sm font-medium"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="bg-dark border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center md:items-start mb-12 text-center md:text-left">
+                
+                <!-- Logo & Desc -->
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white font-heading font-bold text-sm">
+                            FR
+                        </div>
+                        <span class="text-white font-heading font-semibold text-lg">Facundo Rodriguez</span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-xs">
+                        Kinesiólogo especializado en rehabilitación y rendimiento deportivo. Club Atlético Belgrano.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Enlaces</h4>
+                    <nav class="space-y-3">
+                        <a href="#inicio" class="block text-gray-400 hover:text-accent transition-colors text-sm">Inicio</a>
+                        <a href="#sobre-mi" class="block text-gray-400 hover:text-accent transition-colors text-sm">Sobre Mí</a>
+                        <a href="#servicios" class="block text-gray-400 hover:text-accent transition-colors text-sm">Servicios</a>
+                    </nav>
+                </div>
+
+                <!-- Cita -->
+                <div class="flex flex-col items-center md:items-end md:text-right">
+                    <i data-lucide="quote" class="w-8 h-8 text-gray-800 mb-4"></i>
+                    <p class="text-gray-300 italic max-w-xs">
+                        "El movimiento es la medicina para crear el cambio físico, emocional y mental."
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; <span id="year"></span> Facundo Rodriguez. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/kine.facundorodriguez" target="_blank" class="text-gray-500 hover:text-accent transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        // CONFIGURACIÓN DE WHATSAPP
+        // Reemplazar XXXXXXX con el número real de teléfono (incluir código de país sin el +)
+        const WA_PHONE_NUMBER = '5493510000000'; // EDITAR AQUÍ
+        
+        const TEXT_RESERVA = encodeURIComponent('Hola Facundo, quiero reservar un turno');
+        const TEXT_CONSULTA = encodeURIComponent('Hola Facundo, quería consultarte');
+
+        const LINK_RESERVA = `https://wa.me/${WA_PHONE_NUMBER}?text=${TEXT_RESERVA}`;
+        const LINK_CONSULTA = `https://wa.me/${WA_PHONE_NUMBER}?text=${TEXT_CONSULTA}`;
+
+        // Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // Asignar el href real a los links (en vez de solo un listener de click).
+        // Así funcionan correctamente con click derecho, ctrl+click, lectores de pantalla, etc.
+        document.querySelectorAll('.btn-reserva').forEach(link => {
+            link.setAttribute('href', LINK_RESERVA);
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener');
+        });
+
+        document.querySelectorAll('.btn-consulta').forEach(link => {
+            link.setAttribute('href', LINK_CONSULTA);
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener');
+        });
+
+        // Año actual en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header Background on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            // Bloquear el scroll del fondo mientras el menú está abierto
+            document.body.classList.toggle('overflow-hidden', isOpen);
+        }
+
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-controls', 'mobile-menu');
+        menuToggle.addEventListener('click', toggleMenu);
+        menuClose.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Intersection Observer para animaciones (Fade-in on scroll)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Solo anima una vez
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Manejo básico del Formulario
+        const form = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Honeypot: si este campo oculto tiene contenido, es un bot. Cortamos silenciosamente.
+            const honeypot = form.querySelector('input[name="_gotcha"]');
+            if (honeypot && honeypot.value) {
+                form.reset();
+                return;
+            }
+
+            // Si el action tiene 'placeholder', simulamos el envío para no dar error de CORS
+            const actionUrl = form.getAttribute('action');
+            
+            if(actionUrl.includes('placeholder')) {
+                // Simulación de envío exitoso
+                formMessage.textContent = '¡Mensaje enviado con éxito! Me contactaré pronto.';
+                formMessage.className = 'block text-center p-4 rounded-xl text-sm font-medium bg-green-100 text-green-800 mt-4';
+                form.reset();
+                setTimeout(() => { formMessage.classList.add('hidden'); }, 5000);
+                return;
+            }
+
+            // Envío real a Formspree (u otro endpoint)
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(actionUrl, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formMessage.textContent = '¡Mensaje enviado con éxito! Me contactaré pronto.';
+                    formMessage.className = 'block text-center p-4 rounded-xl text-sm font-medium bg-green-100 text-green-800 mt-4';
+                    form.reset();
+                } else {
+                    throw new Error('Error al enviar');
+                }
+            } catch (error) {
+                formMessage.textContent = 'Hubo un error al enviar el mensaje. Por favor, intentá por WhatsApp.';
+                formMessage.className = 'block text-center p-4 rounded-xl text-sm font-medium bg-red-100 text-red-800 mt-4';
+            }
+            
+            setTimeout(() => { formMessage.classList.add('hidden'); }, 5000);
+        });
+    </script>
+</body>
+</html>
